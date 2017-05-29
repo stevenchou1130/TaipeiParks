@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		AA8E05878111FEFE348B496D /* Pods_TaipeiParks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A077AFDC5F90E9D690D92334 /* Pods_TaipeiParks.framework */; };
 		B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */; };
-		B0E9CC861EDC0A200041AFD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC851EDC0A200041AFD0 /* ViewController.swift */; };
 		B0E9CC891EDC0A200041AFD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC871EDC0A200041AFD0 /* Main.storyboard */; };
 		B0E9CC8B1EDC0A200041AFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */; };
 		B0E9CC8E1EDC0A200041AFD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC8C1EDC0A200041AFD0 /* LaunchScreen.storyboard */; };
+		B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */; };
+		B0E9CC9A1EDC127B0041AFD0 /* ParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */; };
+		B0E9CC9B1EDC127B0041AFD0 /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +22,13 @@
 		A077AFDC5F90E9D690D92334 /* Pods_TaipeiParks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiParks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E9CC801EDC0A200041AFD0 /* TaipeiParks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiParks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0E9CC851EDC0A200041AFD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B0E9CC881EDC0A200041AFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0E9CC8D1EDC0A200041AFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0E9CC8F1EDC0A200041AFD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksTableViewController.swift; sourceTree = "<group>"; };
+		B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTableViewCell.swift; sourceTree = "<group>"; };
+		B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkTableViewCell.xib; sourceTree = "<group>"; };
 		DFEBC502F7B3CAE9AA2FFD11 /* Pods-TaipeiParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParks/Pods-TaipeiParks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */,
-				B0E9CC851EDC0A200041AFD0 /* ViewController.swift */,
+				B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */,
+				B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */,
+				B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */,
 				B0E9CC871EDC0A200041AFD0 /* Main.storyboard */,
 				B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */,
 				B0E9CC8C1EDC0A200041AFD0 /* LaunchScreen.storyboard */,
@@ -154,6 +160,7 @@
 				B0E9CC8E1EDC0A200041AFD0 /* LaunchScreen.storyboard in Resources */,
 				B0E9CC8B1EDC0A200041AFD0 /* Assets.xcassets in Resources */,
 				B0E9CC891EDC0A200041AFD0 /* Main.storyboard in Resources */,
+				B0E9CC9B1EDC127B0041AFD0 /* ParkTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0E9CC861EDC0A200041AFD0 /* ViewController.swift in Sources */,
+				B0E9CC9A1EDC127B0041AFD0 /* ParkTableViewCell.swift in Sources */,
 				B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */,
+				B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
