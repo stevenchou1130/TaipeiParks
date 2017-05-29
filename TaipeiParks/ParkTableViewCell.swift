@@ -10,15 +10,23 @@ import UIKit
 
 class ParkTableViewCell: UITableViewCell {
 
+    class var identifier: String {
+        return String(describing: self)
+    }
+
+    @IBOutlet weak var parkImageView: UIImageView!
+    @IBOutlet weak var parkNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var introductionLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

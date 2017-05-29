@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA8E05878111FEFE348B496D /* Pods_TaipeiParks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A077AFDC5F90E9D690D92334 /* Pods_TaipeiParks.framework */; };
+		B0BDBB911EDC899300DC8F05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBB901EDC899300DC8F05 /* Constants.swift */; };
 		B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */; };
 		B0E9CC891EDC0A200041AFD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC871EDC0A200041AFD0 /* Main.storyboard */; };
 		B0E9CC8B1EDC0A200041AFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0C4B77A5A5C6DE63E43B49DE /* Pods-TaipeiParks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParks.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParks/Pods-TaipeiParks.release.xcconfig"; sourceTree = "<group>"; };
 		A077AFDC5F90E9D690D92334 /* Pods_TaipeiParks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiParks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0BDBB901EDC899300DC8F05 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0E9CC801EDC0A200041AFD0 /* TaipeiParks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiParks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E9CC881EDC0A200041AFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B0BDBB8F1EDC897900DC8F05 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B0BDBB901EDC899300DC8F05 /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		B0E9CC771EDC0A200041AFD0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 				B0E9CC9C1EDC13860041AFD0 /* Cell */,
 				B0E9CC9E1EDC13BE0041AFD0 /* ParkProvider */,
 				B0E9CCA31EDC4FBF0041AFD0 /* Component */,
+				B0BDBB8F1EDC897900DC8F05 /* Utilities */,
 				B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */,
 				B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */,
 				B0E9CC8C1EDC0A200041AFD0 /* LaunchScreen.storyboard */,
@@ -278,6 +289,7 @@
 				B0E9CCA21EDC13F30041AFD0 /* ParkModel.swift in Sources */,
 				B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */,
 				B0E9CCA01EDC13E60041AFD0 /* ParkProvider.swift in Sources */,
+				B0BDBB911EDC899300DC8F05 /* Constants.swift in Sources */,
 				B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */,
 				B0E9CCA71EDC50D90041AFD0 /* ImageTool.swift in Sources */,
 			);

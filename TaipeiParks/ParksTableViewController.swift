@@ -18,6 +18,14 @@ class ParksTableViewController: UITableViewController {
         super.viewDidLoad()
 
         firstLoading()
+        setView()
+    }
+
+    func setView() {
+
+        let parkNib = UINib(nibName: ParkTableViewCell.identifier, bundle: nil)
+        tableView.register(parkNib, forCellReuseIdentifier: ParkTableViewCell.identifier)
+
     }
 
     func firstLoading() {
@@ -44,22 +52,32 @@ class ParksTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 0
+        return 10
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        // Configure the cell...
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        return tableView.rowHeight
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: ParkTableViewCell.identifier,
+                                                     for: indexPath) as? ParkTableViewCell
+            else {
+                return UITableViewCell()
+        }
 
         return cell
     }
-    */
 
 }
