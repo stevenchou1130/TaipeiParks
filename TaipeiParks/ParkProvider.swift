@@ -14,12 +14,9 @@ class ParkProvider {
 
     typealias GetParkCompletion = ([ParkModel]?, Error?) -> Void
 
-    func getParkData() {
+    func getParkData(limitNum: Int, offsetNum: Int, completion: @escaping GetParkCompletion) {
 
         let urlString = "http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=bf073841-c734-49bf-a97f-3757a6013812"
-
-        let limitNum = 30
-        let offsetNum = 0
 
         let urlWithParams = urlString + "&limit=\(limitNum)" + "&offset=\(offsetNum)"
 
@@ -27,31 +24,26 @@ class ParkProvider {
             let url = URL(string: urlWithParams)
             else { return }
 
-        let request = NSMutableURLRequest(url: url,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+        var request = URLRequest(url: url)
 
         request.httpMethod = "GET"
 
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest,
                                         completionHandler: { (data, response, error) in
-            if error != nil {
-                print(String(describing: error))
-            } else {
+
+            if error == nil {
 
                 guard
                     let httpResponse = response as? HTTPURLResponse
                     else {
                         print("Can't parse HTTPResponse")
                         return
-                    }
+                }
 
                 switch httpResponse.statusCode {
 
                 case 200:
-                    print("200")
-
                     guard
                         let parks = self.parseParkJSON(data)
                         else {
@@ -59,13 +51,15 @@ class ParkProvider {
                             return
                     }
 
-                    print("parks.count: \(parks.count)")
+                    completion(parks, nil)
 
                 default:
-                    print("default")
-
+                    print("The httpResponse is not 200.")
                 }
 
+            } else {
+                print(String(describing: error))
+                completion(nil, error)
             }
         })
 
@@ -79,11 +73,10 @@ class ParkProvider {
             let result = json?["result"] as? [String: Any],
             let parksData = result["results"] as? [[String: Any]] {
 
-//            print("parksData.count: \(parksData.count)")
-
             var parks: [ParkModel] = []
             var parkModel: ParkModel?
 
+            // Get data of each park
             for park in parksData {
 
                 if let parkName = park["ParkName"] as? String,

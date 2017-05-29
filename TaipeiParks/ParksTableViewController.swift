@@ -10,16 +10,38 @@ import UIKit
 
 class ParksTableViewController: UITableViewController {
 
+    let limitNum = 30
+    var offsetNum = 0
+    var parksList: [ParkModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        firstLoading()
+    }
+
+    func firstLoading() {
+
         let parkProvider = ParkProvider.shared
 
-        parkProvider.getParkData()
+        parkProvider.getParkData(limitNum: limitNum, offsetNum: offsetNum) { (parks, error) in
+
+            if let parks = parks {
+                print("parksList: \(String(describing: self.parksList.count))")
+                self.parksList.insert(contentsOf: parks, at: self.parksList.count)
+                print("parksList: \(String(describing: self.parksList.count))")
+
+                for park in parks {
+                    print("name: " + park.name)
+                }
+
+            } else {
+                print("Error: \(String(describing: error))")
+            }
+        }
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
 
         return 0

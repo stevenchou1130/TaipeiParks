@@ -17,6 +17,7 @@
 		B0E9CC9B1EDC127B0041AFD0 /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */; };
 		B0E9CCA01EDC13E60041AFD0 /* ParkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC9F1EDC13E60041AFD0 /* ParkProvider.swift */; };
 		B0E9CCA21EDC13F30041AFD0 /* ParkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */; };
+		B0E9CCA71EDC50D90041AFD0 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CCA61EDC50D90041AFD0 /* ImageTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkTableViewCell.xib; sourceTree = "<group>"; };
 		B0E9CC9F1EDC13E60041AFD0 /* ParkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkProvider.swift; sourceTree = "<group>"; };
 		B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkModel.swift; sourceTree = "<group>"; };
+		B0E9CCA61EDC50D90041AFD0 /* ImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 		DFEBC502F7B3CAE9AA2FFD11 /* Pods-TaipeiParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParks/Pods-TaipeiParks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				B0E9CC9D1EDC13A70041AFD0 /* MainPage */,
 				B0E9CC9C1EDC13860041AFD0 /* Cell */,
 				B0E9CC9E1EDC13BE0041AFD0 /* ParkProvider */,
+				B0E9CCA31EDC4FBF0041AFD0 /* Component */,
 				B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */,
 				B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */,
 				B0E9CC8C1EDC0A200041AFD0 /* LaunchScreen.storyboard */,
@@ -113,6 +116,14 @@
 				B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */,
 			);
 			name = ParkProvider;
+			sourceTree = "<group>";
+		};
+		B0E9CCA31EDC4FBF0041AFD0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B0E9CCA61EDC50D90041AFD0 /* ImageTool.swift */,
+			);
+			name = Component;
 			sourceTree = "<group>";
 		};
 		EC8950CA749D51381B407DF7 /* Pods */ = {
@@ -268,6 +279,7 @@
 				B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */,
 				B0E9CCA01EDC13E60041AFD0 /* ParkProvider.swift in Sources */,
 				B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */,
+				B0E9CCA71EDC50D90041AFD0 /* ImageTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
