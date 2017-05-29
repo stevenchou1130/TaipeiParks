@@ -13,6 +13,9 @@ class ParksTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let parkProvider = ParkProvider.shared
+
+        parkProvider.getParkData()
     }
 
     // MARK: - Table view data source

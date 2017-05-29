@@ -15,6 +15,8 @@
 		B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */; };
 		B0E9CC9A1EDC127B0041AFD0 /* ParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */; };
 		B0E9CC9B1EDC127B0041AFD0 /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */; };
+		B0E9CCA01EDC13E60041AFD0 /* ParkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CC9F1EDC13E60041AFD0 /* ParkProvider.swift */; };
+		B0E9CCA21EDC13F30041AFD0 /* ParkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksTableViewController.swift; sourceTree = "<group>"; };
 		B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTableViewCell.swift; sourceTree = "<group>"; };
 		B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkTableViewCell.xib; sourceTree = "<group>"; };
+		B0E9CC9F1EDC13E60041AFD0 /* ParkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkProvider.swift; sourceTree = "<group>"; };
+		B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkModel.swift; sourceTree = "<group>"; };
 		DFEBC502F7B3CAE9AA2FFD11 /* Pods-TaipeiParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParks/Pods-TaipeiParks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,16 +77,42 @@
 		B0E9CC821EDC0A200041AFD0 /* TaipeiParks */ = {
 			isa = PBXGroup;
 			children = (
-				B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */,
-				B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */,
-				B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */,
-				B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */,
-				B0E9CC871EDC0A200041AFD0 /* Main.storyboard */,
+				B0E9CC9D1EDC13A70041AFD0 /* MainPage */,
+				B0E9CC9C1EDC13860041AFD0 /* Cell */,
+				B0E9CC9E1EDC13BE0041AFD0 /* ParkProvider */,
 				B0E9CC8A1EDC0A200041AFD0 /* Assets.xcassets */,
+				B0E9CC831EDC0A200041AFD0 /* AppDelegate.swift */,
 				B0E9CC8C1EDC0A200041AFD0 /* LaunchScreen.storyboard */,
 				B0E9CC8F1EDC0A200041AFD0 /* Info.plist */,
 			);
 			path = TaipeiParks;
+			sourceTree = "<group>";
+		};
+		B0E9CC9C1EDC13860041AFD0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B0E9CC981EDC127B0041AFD0 /* ParkTableViewCell.swift */,
+				B0E9CC991EDC127B0041AFD0 /* ParkTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		B0E9CC9D1EDC13A70041AFD0 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				B0E9CC961EDC11F30041AFD0 /* ParksTableViewController.swift */,
+				B0E9CC871EDC0A200041AFD0 /* Main.storyboard */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		B0E9CC9E1EDC13BE0041AFD0 /* ParkProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B0E9CC9F1EDC13E60041AFD0 /* ParkProvider.swift */,
+				B0E9CCA11EDC13F30041AFD0 /* ParkModel.swift */,
+			);
+			name = ParkProvider;
 			sourceTree = "<group>";
 		};
 		EC8950CA749D51381B407DF7 /* Pods */ = {
@@ -234,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E9CC9A1EDC127B0041AFD0 /* ParkTableViewCell.swift in Sources */,
+				B0E9CCA21EDC13F30041AFD0 /* ParkModel.swift in Sources */,
 				B0E9CC841EDC0A200041AFD0 /* AppDelegate.swift in Sources */,
+				B0E9CCA01EDC13E60041AFD0 /* ParkProvider.swift in Sources */,
 				B0E9CC971EDC11F30041AFD0 /* ParksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
