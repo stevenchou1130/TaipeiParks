@@ -24,6 +24,8 @@ class ParksTableViewController: UITableViewController {
 
     func setView() {
 
+        self.navigationItem.title = "Taipei City Parks"
+
         let parkNib = UINib(nibName: ParkTableViewCell.identifier, bundle: nil)
         tableView.register(parkNib, forCellReuseIdentifier: ParkTableViewCell.identifier)
 
@@ -31,9 +33,7 @@ class ParksTableViewController: UITableViewController {
 
     func loadParksData() {
 
-        // todo: Frame 需要往下縮一些
         // todo: 增加轉圈圈
-
         let parkProvider = ParkProvider.shared
 
         parkProvider.getParkData(limitNum: limitNum, offsetNum: offsetNum) { (parks, error) in
@@ -44,7 +44,9 @@ class ParksTableViewController: UITableViewController {
                 print("=== Error: \(String(describing: error))")
             }
 
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -89,6 +91,16 @@ class ParksTableViewController: UITableViewController {
         }
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        let lastElement = parksList.count - 1
+        if indexPath.row == lastElement {
+
+            offsetNum += limitNum
+            loadParksData()
+        }
     }
 
     func setCellImage(_ park: ParkModel, _ parkImageView: UIImageView) {
