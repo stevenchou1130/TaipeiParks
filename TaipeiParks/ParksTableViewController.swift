@@ -11,15 +11,21 @@ import UIKit
 class ParksTableViewController: UITableViewController {
 
     let imageCache = NSCache<AnyObject, AnyObject>()
+
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     let limitNum = 30
     var offsetNum = 0
+
     var parksList: [ParkModel] = []
+
+    var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadParksData()
         setView()
+        loadParksData()
     }
 
     func setView() {
@@ -29,11 +35,21 @@ class ParksTableViewController: UITableViewController {
         let parkNib = UINib(nibName: ParkTableViewCell.identifier, bundle: nil)
         tableView.register(parkNib, forCellReuseIdentifier: ParkTableViewCell.identifier)
 
+        // Set Indicator
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.color = .green
+        view.addSubview(activityIndicator)
     }
 
     func loadParksData() {
 
-        // todo: 增加轉圈圈
+        // todo: Fix bug - can't show activityIndicator when loading new data
+
+        self.isLoading = true
+        self.activityIndicator.startAnimating()
+
         let parkProvider = ParkProvider.shared
 
         parkProvider.getParkData(limitNum: limitNum, offsetNum: offsetNum) { (parks, error) in
@@ -45,7 +61,45 @@ class ParksTableViewController: UITableViewController {
             }
 
             DispatchQueue.main.async {
+
+                self.isLoading = false
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
+            }
+        }
+    }
+
+    func setCellImage(_ park: ParkModel, _ parkImageView: UIImageView) {
+
+        // todo: chech url is correct one
+
+        parkImageView.image = nil
+
+        if let imageFromCache = imageCache.object(forKey: park.image as AnyObject) as? UIImage {
+            parkImageView.image = imageFromCache
+            return
+        }
+
+        DispatchQueue.global().async {
+            if let imageUrl = URL(string: (park.image)) {
+
+                do {
+                    let imageData = try Data(contentsOf: imageUrl)
+                    if let image = UIImage(data: imageData) {
+
+                        DispatchQueue.main.async {
+
+                            let imageToCache = image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: .stretch)
+
+                            self.imageCache.setObject(imageToCache, forKey: park.image as AnyObject)
+
+                            parkImageView.image = imageToCache
+                            parkImageView.contentMode = .scaleAspectFit
+                        }
+                    }
+                } catch {
+                    print("=== Error: \(error)")
+                }
             }
         }
     }
@@ -96,43 +150,12 @@ class ParksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         let lastElement = parksList.count - 1
-        if indexPath.row == lastElement {
+
+        if indexPath.row == lastElement &&
+            self.isLoading == false {
 
             offsetNum += limitNum
             loadParksData()
-        }
-    }
-
-    func setCellImage(_ park: ParkModel, _ parkImageView: UIImageView) {
-
-        parkImageView.image = nil
-
-        if let imageFromCache = imageCache.object(forKey: park.image as AnyObject) as? UIImage {
-            parkImageView.image = imageFromCache
-            return
-        }
-
-        DispatchQueue.global().async {
-            if let imageUrl = URL(string: (park.image)) {
-
-                do {
-                    let imageData = try Data(contentsOf: imageUrl)
-                    if let image = UIImage(data: imageData) {
-
-                        DispatchQueue.main.async {
-
-                            let imageToCache = image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: .stretch)
-
-                            self.imageCache.setObject(imageToCache, forKey: park.image as AnyObject)
-
-                            parkImageView.image = imageToCache
-                            parkImageView.contentMode = .scaleAspectFit
-                        }
-                    }
-                } catch {
-                    print("=== Error: \(error)")
-                }
-            }
         }
     }
 
