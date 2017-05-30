@@ -37,7 +37,7 @@ class ParkProvider {
                 guard
                     let httpResponse = response as? HTTPURLResponse
                     else {
-                        print("Can't parse HTTPResponse")
+                        print("=== Can't parse HTTPResponse")
                         return
                 }
 
@@ -47,18 +47,18 @@ class ParkProvider {
                     guard
                         let parks = self.parseParkJSON(data)
                         else {
-                            print("Can't parse park JSON")
+                            print("=== Can't parse park JSON")
                             return
                     }
 
                     completion(parks, nil)
 
                 default:
-                    print("The httpResponse is not 200.")
+                    print("=== The httpResponse is not 200.")
                 }
 
             } else {
-                print(String(describing: error))
+                print("=== Error: \(String(describing: error))")
                 completion(nil, error)
             }
         })
@@ -97,7 +97,7 @@ class ParkProvider {
 
         } else {
 
-            print("Something is wrong")
+            print("=== Something is wrong")
             return nil
         }
     }
